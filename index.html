@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Anti-Drone Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Anti-Drone Dashboard</h1>
-  <p>Dashboard en cours de mise en place…</p>
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Anti-Drone Dashboard</h1>
+      <p class="subtitle">Visualisation de l'état global du système</p>
+    </div>
+    <div class="topbar-right">
+      <span id="last-update-label">Dernière mise à jour :</span>
+      <span id="last-update-value">–</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Cartes de résumé -->
+    <section class="grid grid-3" aria-label="Résumé global">
+      <article class="card">
+        <h2>Menaces détectées</h2>
+        <p class="big-number" id="total-threats">–</p>
+        <p class="card-label">Total des cibles hostiles détectées</p>
+      </article>
+
+      <article class="card">
+        <h2>Capteurs actifs</h2>
+        <p class="big-number" id="active-sensors">–</p>
+        <p class="card-label">Radar, EO/IR, RF, acoustique...</p>
+      </article>
+
+      <article class="card" id="alert-card">
+        <h2>Niveau d'alerte</h2>
+        <p class="big-number" id="alert-level">–</p>
+        <p class="card-label" id="alert-description">En attente des données…</p>
+      </article>
+    </section>
+
+    <!-- Détails capteurs + cibles -->
+    <section class="grid grid-2">
+      <article class="card">
+        <h2>État des capteurs</h2>
+        <ul id="sensor-list" class="list">
+          <li class="muted">En attente des données…</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Cibles suivies</h2>
+        <ul id="target-list" class="list">
+          <li class="muted">En attente des données…</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Journal des événements -->
+    <section class="card">
+      <h2>Journal des événements récents</h2>
+      <ul id="event-log" class="log">
+        <li class="muted">Aucun événement pour le moment…</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 Anti-Drone R&D — Vue publique</span>
+    <span id="auto-refresh-status">Rafraîchissement auto : toutes les 30 s</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
